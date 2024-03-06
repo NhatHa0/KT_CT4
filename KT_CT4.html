@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +6,28 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="">
-        <label>Tên đăng nhập</label>
-        <input type="text" id="txtusername">
-        <label>Mật khẩu</label>
-        <input type="text" id="txtpassword">
-        <button>Đăng Nhập</button>
+    <form id="loginForm">
+        <label for="txtusername">Tên đăng nhập</label>
+        <input type="text" id="txtusername" name="username">
+        <label for="txtpassword">Mật khẩu</label>
+        <input type="password" id="txtpassword" name="password">
+        <button type="submit">Đăng Nhập</button>
     </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var username = document.getElementById("txtusername").value;
+            var password = document.getElementById("txtpassword").value;
+
+            if (username === "admin" && password === "admin") {
+
+                window.location.href = "index.html";
+            } else {
+                alert("Tên đăng nhập hoặc mật khẩu không đúng.");
+            }
+        });
+    </script>
 </body>
 </html>
